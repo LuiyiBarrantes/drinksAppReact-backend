@@ -1,5 +1,7 @@
 var express = require('express');
-const { register } = require('../controllers/authController');
+const { register, login } = require('../controllers/authController');
+const { profile } = require('../controllers/usersController');
+const checkToken = require('../middlewares/checkToken');
 var router = express.Router();
 
 /* GET home page. */
@@ -11,5 +13,7 @@ router
   })
 })
 .post('/api/register', register)
+.post('/api/login', login )
 
+.get('/api/profile', checkToken , profile)
 module.exports = router;

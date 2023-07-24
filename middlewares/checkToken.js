@@ -12,7 +12,7 @@ module.exports = async (req,res,next) => {
 
     const decoded = verify(token, process.env.JWT_SECRET)
 
-    req.user = await User.findById(decoded.user.id).select('-password -token -checked -createdAt -updateAt -_id -__v')
+    req.user = await User.findById(decoded.user.id).select('-password -token -checked -createdAt -updatedAt -_id -__v')
     
     next()
 

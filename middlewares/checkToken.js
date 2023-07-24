@@ -41,7 +41,7 @@ module.exports = async (req,res,next) => {
             break;
     }
     return res.status(error.status || 500).json({
-        ok: fase,
+        ok: false,
         message : error.message || 'Ups... hubo un prolema'
     })
 } }

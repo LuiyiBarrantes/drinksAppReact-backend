@@ -21,19 +21,19 @@ module.exports = async (req,res,next) => {
     let message;
 
     switch (error.message) {
-        case 'jwt malformed':
+        case "jwt malformed":
             message = 'El token está corrupto'
             
             break;
-        case 'jwt expired':
+        case "jwt expired":
             message = 'El token ha expirado'
             break;
 
-        case 'invalid token':
+        case "invalid token":
             message = 'Token inválido'
             break;
 
-        case 'invalid signature':
+        case "invalid signature":
             message = 'Firma inválida'
             break;
         default:
@@ -42,6 +42,6 @@ module.exports = async (req,res,next) => {
     }
     return res.status(error.status || 500).json({
         ok: false,
-        message : error.message || 'Ups... hubo un prolema'
+        message : message || 'Ups... hubo un problema'
     })
 } }

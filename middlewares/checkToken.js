@@ -12,7 +12,7 @@ module.exports = async (req,res,next) => {
 
     const decoded = verify(token, process.env.JWT_SECRET)
 
-    req.user = await User.findById(decoded.user.id).select('-password -token -checked -createdAt -updatedAt -__v').populate('favorites','-createdAt -updatedAt -__v -user')
+    req.user = await User.findById(decoded.user.id).select('-password -token -checked -createdAt -updateAt -__v').populate('favorites','-createdAt -updatedAt -__v -user')
     //console.log('req.user', req.user)
     next()
 

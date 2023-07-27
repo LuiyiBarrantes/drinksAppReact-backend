@@ -1,4 +1,3 @@
-const { hash, compare } = require("bcryptjs");
 const { default: mongoose } = require("mongoose");
 
 const favoriteSchema = new mongoose.Schema(
@@ -8,6 +7,16 @@ const favoriteSchema = new mongoose.Schema(
             required: true,
             trim: true,
         },
+        strDrinkThumb: {
+            type: String,
+            required: true,
+            trim: true,
+          },
+          strDrink: {
+            type: String,
+            required: true,
+            trim: true,
+          },
         user:{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Users'
@@ -18,4 +27,4 @@ const favoriteSchema = new mongoose.Schema(
     }
 )
 
- module.exports=mongoose.model('Favorites', userSchema)
+ module.exports=mongoose.model('Favorites', favoriteSchema)

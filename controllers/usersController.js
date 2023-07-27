@@ -23,6 +23,7 @@ const toggleFavorite = async (req, res) => {
     }
     const { favorites, _id } = req.user
     const { idDrink, strDrinkThumb, strDrink } = req.body;
+    console.log(req.body);
     if (!idDrink || !strDrinkThumb || !strDrink) {
       throw createError(400, 'Se requieren todos los datos de la bebida')
     }

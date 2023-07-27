@@ -2,7 +2,7 @@ const { default: mongoose } = require("mongoose");
 
 const favoriteSchema = new mongoose.Schema(
     {
-        drink: {
+        idDrink: {
             type: String,
             required: true,
             trim: true,

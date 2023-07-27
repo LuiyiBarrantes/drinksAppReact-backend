@@ -28,12 +28,12 @@ const toggleFavorite = async (req, res) => {
       throw createError(400, 'Se requieren todos los datos de la bebida')
     }
     const favoriteDrinkFound = await Favorites.findOneAndDelete({
-      drink: idDrink,
+      idDrink:idDrink,
       user: _id,
     });
     //const user = await Users.findById(_id)
     if (!favoriteDrinkFound) {
-      const newFavorite = new Favorites({ drink: idDrink,
+      const newFavorite = new Favorites({  idDrink,
         strDrinkThumb,
         strDrink, user: _id });
       await newFavorite.save();
